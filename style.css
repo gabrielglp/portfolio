@@ -360,8 +360,6 @@ html {
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 2rem;
 
-  min-height: 30rem;
-
   box-shadow:  5px 5px 20px #000000;
 }
 
@@ -521,6 +519,32 @@ html {
   transform: scale(1.1);
 }
 
+.iconImg {
+  width: 5rem;
+}
+
+.roudend-full {
+  border-radius: 100%;
+}
+
+.iconImgProjetos {
+  width: 2.5rem;
+}
+
+.align {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mr-2 {
+  margin-right: .5rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
 section#competenciasDesktop {
   display: none;
 }
@@ -548,32 +572,6 @@ section#competenciasDesktop {
   header#home .banner video {
     filter: brightness(.5);
     display: initial;
-  }
-
-  .iconImg {
-    width: 5rem;
-  }
-
-  .roudend-full {
-    border-radius: 100%;
-  }
-
-  .iconImgProjetos {
-    width: 2.5rem;
-  }
-
-  .align {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .mr-2 {
-    margin-right: .5rem;
-  }
-
-  .mt-4 {
-    margin-top: 1rem;
   }
 
   section#projects .wrapper header h2 {
