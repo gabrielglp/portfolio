@@ -232,6 +232,10 @@ html {
     right: -24rem;
   }
 
+  .red-color {
+    color: #db6262 !important;
+  }
+
   #projects img.looper.dois {
     bottom: 45%;
     left: -24rem;
