@@ -545,8 +545,21 @@ html {
   margin-right: .5rem;
 }
 
+.ml-2 {
+  margin-left: .5rem;
+}
+
 .mt-4 {
   margin-top: 1rem;
+}
+
+.flex-j-b {
+  display: flex;
+  justify-content: space-between;
+}
+
+.w-18 {
+  width: 18rem;
 }
 
 section#competenciasDesktop {
