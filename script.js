@@ -1,3 +1,36 @@
+document.addEventListener('DOMContentLoaded', function () {
+  const textElement = document.getElementById('animated-text');
+  const text = textElement.innerText;
+  const speed = 200;
+  let index = 0;
+  let isDeleting = false;
+
+  function type() {
+    let textToDisplay = text.substring(0, index);
+    if (isDeleting) {
+      textElement.innerText = textToDisplay;
+      index--;
+      if (index < 0) {
+        isDeleting = false;
+        setTimeout(type, speed);
+      } else {
+        setTimeout(type, speed / 2);
+      }
+    } else {
+      textElement.innerText = textToDisplay;
+      index++;
+      if (index > text.length) {
+        isDeleting = true;
+        setTimeout(type, speed * 2);
+      } else {
+        setTimeout(type, speed);
+      }
+    }
+  }
+
+  type();
+});
+
 var swiper = new Swiper('.mySwiper', {
   grabCursor: true,
   effect: 'creative',
@@ -11,37 +44,6 @@ var swiper = new Swiper('.mySwiper', {
       translate: ['120%', 0, -500],
     },
   },
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-  const textElement = document.getElementById('typing-text');
-  const phrases = [
-    'Opa! Meu nome é Gabriel Martins',
-    'Bem-vindo ao meu portfólio!',
-  ];
-  let phraseIndex = 0;
-  let charIndex = 0;
-  let deleting = false;
-
-  function type() {
-    if (deleting) {
-      textElement.textContent = phrases[phraseIndex].substring(0, charIndex--);
-      if (charIndex < 0) {
-        deleting = false;
-        phraseIndex = (phraseIndex + 1) % phrases.length;
-        setTimeout(type, 300);
-      }
-    } else {
-      textElement.textContent = phrases[phraseIndex].substring(0, charIndex++);
-      if (charIndex > phrases[phraseIndex].length) {
-        deleting = true;
-        setTimeout(type, 400);
-      }
-    }
-    setTimeout(type, deleting ? 50 : 100);
-  }
-
-  type();
 });
 
 const hamburger = document.querySelector('.hamburger');
