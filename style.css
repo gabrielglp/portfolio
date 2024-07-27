@@ -94,6 +94,11 @@ html {
   font-family: "Roboto Mono", monospace;
   font-size: 24px;
   color: #fff;
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #000;
+  display: inline-block;
 }
 
 .banner {

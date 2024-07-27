@@ -1,30 +1,27 @@
 document.addEventListener('DOMContentLoaded', function () {
   const textElement = document.getElementById('animated-text');
-  const text = textElement.innerText;
-  const speed = 200;
-  let index = 0;
-  let isDeleting = false;
+  const phrases = ['Opa! Meu nome é', 'Bem-vindo ao meu portfólio!'];
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let deleting = false;
+  let typingSpeed = 100;
+  let deletingSpeed = 50;
 
   function type() {
-    let textToDisplay = text.substring(0, index);
-    if (isDeleting) {
-      textElement.innerText = textToDisplay;
-      index--;
-      if (index < 0) {
-        isDeleting = false;
-        setTimeout(type, speed);
-      } else {
-        setTimeout(type, speed / 2);
-      }
-    } else {
-      textElement.innerText = textToDisplay;
-      index++;
-      if (index > text.length) {
-        isDeleting = true;
-        setTimeout(type, speed * 2);
-      } else {
-        setTimeout(type, speed);
-      }
+    textElement.textContent = phrases[phraseIndex].substring(0, charIndex);
+    if (!deleting && charIndex < phrases[phraseIndex].length) {
+      charIndex++;
+      setTimeout(type, typingSpeed);
+    } else if (deleting && charIndex > 0) {
+      charIndex--;
+      setTimeout(type, deletingSpeed);
+    } else if (charIndex === phrases[phraseIndex].length) {
+      deleting = true;
+      setTimeout(type, 1000); // Pausa após digitar a frase completa
+    } else if (charIndex === 0) {
+      deleting = false;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      setTimeout(type, 500); // Pausa antes de começar a digitar novamente
     }
   }
 
